@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  jenkins:
+    container_name: jenkins_dev
+    image: jenkins/dotnet
+    build:
+      context: jenkins
+    ports:
+      - "8080:8080"
+    volumes:
+      - "./jenkins_home:/var/jenkins_home"
+    networks:
+      - net
+networks:
+  net:
