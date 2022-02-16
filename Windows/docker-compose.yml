@@ -1,0 +1,50 @@
+version: "3.9"
+services:
+  jenkins:
+    container_name: jenkins_dev
+    image: jenkins/dotnet
+    build:
+      context: dockerindockerjenkins
+    ports:
+      - "8080:8080"
+    volumes:
+      - "V:/jenkins_home:/var/jenkins_home"
+    networks:
+      - net
+  rabbitmq:
+    container_name: rabbitmq_dev
+    image: rabbitmq:3.9-management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    volumes:
+      - "V:/rabbitmq_home:/var/rabbitmq_home"
+    networks:
+      - net
+  mssql:
+    container_name: mssql_dev
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - SA_PASSWORD=Master@123
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
+    volumes:
+      - "V:/mssql_home:/var/mssql_home"
+    networks:
+      - net
+  mysql:
+    container_name: mysql_dev
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    volumes:
+      - V:/mysql_home:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Master@123
+    ports:
+      - "3306:3306"
+    networks:
+      - net
+networks:
+  net:
