@@ -6,19 +6,19 @@ services:
     build:
       context: dockerindockerjenkins
     ports:
-      - "8080:8080"
+      - 8080:8080
     volumes:
-      - "V:/jenkins_home:/var/jenkins_home"
+      - V:/jenkins_home:/var/jenkins_home
     networks:
       - net
   rabbitmq:
     container_name: rabbitmq_dev
     image: rabbitmq:3.9-management
     ports:
-      - "15672:15672"
-      - "5672:5672"
+      - 15672:15672
+      - 5672:5672
     volumes:
-      - "V:/rabbitmq_home:/var/rabbitmq_home"
+      - V:/rabbitmq_home:/var/rabbitmq_home
     networks:
       - net
   mssql:
@@ -28,9 +28,9 @@ services:
       - SA_PASSWORD=Master@123
       - ACCEPT_EULA=Y
     ports:
-      - "1433:1433"
+      - 1433:1433
     volumes:
-      - "V:/mssql_home:/var/mssql_home"
+      - V:/mssql_home:/var/mssql_home
     networks:
       - net
   mysql:
@@ -42,19 +42,50 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: Master@123
     ports:
-      - "3306:3306"
+      - 3306:3306
     networks:
       - net
   seq:
     container_name: seq
     image: datalust/seq:latest
     ports:
-      - "5341:80"
+      - 5341:80
     volumes:
-      - "V:/seq_home:/var/seq_home"
+      - V:/seq_home:/var/seq_home
     environment:
       - ACCEPT_EULA=Y
     networks:
+      - net
+  zookeeper:
+    container_name: zookeeper_dev
+    image: confluentinc/cp-zookeeper:latest
+    volumes: 
+      - V:/zookeeper_home/data:/var/lib/zookeeper/data
+      - V:/zookeeper_home/log:/var/lib/zookeeper/log
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - 2181:2181
+    networks: 
+      - net
+  kafka:
+    container_name: kafka_dev
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    ports:
+      - 9092:9092
+    volumes:
+      - V:/kafka_home:/var/lib/kafka
+    networks: 
       - net
 networks:
   net:
