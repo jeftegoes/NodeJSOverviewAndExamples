@@ -87,5 +87,23 @@ services:
       - V:/kafka_home:/var/lib/kafka
     networks: 
       - net
+  grafana:
+    container_name: grafana_dev
+    image: grafana/grafana
+    ports:
+      - 3000:3000
+    networks:
+      - net
+  graphite:
+    container_name: graphite_dev
+    image: hopsoft/graphite-statsd
+    ports:
+      - 81:81
+      - 2003-2004:2003-2004
+      - 2023-2024:2023-2024
+      - 8125:8125/udp
+      - 8126:8126
+    networks:
+      - net
 networks:
   net:
