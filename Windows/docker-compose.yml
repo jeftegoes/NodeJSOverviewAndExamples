@@ -105,5 +105,20 @@ services:
       - 8126:8126
     networks:
       - net
+  glue_jupyter:
+    container_name: glue_jupyter
+    command: /home/glue_user/jupyter/jupyter_start.sh
+    environment:
+      - DISABLE_SSL=true
+    image: amazon/aws-glue-libs:glue_libs_4.0.0_image_01
+    ports:
+      - 4040:4040
+      - 18080:18080
+      - 8998:8998
+      - 8888:8888
+    restart: always
+    volumes:
+      - V:/glue_jupyter:/home/glue_user/.aws
+      - V:/glue_jupyter_workspace/:/home/glue_user/workspace/jupyter_workspace/
 networks:
   net:
