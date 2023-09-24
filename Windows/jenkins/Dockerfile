@@ -13,6 +13,6 @@ RUN wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod
 RUN apt-get update && \
   apt-get install -y apt-transport-https && \
   apt-get update && \
-  apt-get install -y dotnet-sdk-5.0
+  apt-get install -y dotnet-sdk-7.0
 
-RUN apt-get install -y dotnet-runtime-5.0
+RUN apt-get install -y dotnet-runtime-7.0
