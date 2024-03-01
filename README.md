@@ -4,6 +4,7 @@
 
 - [1. Introduction](#1-introduction)
   - [1.1. Architecture](#11-architecture)
+  - [1.2. Lifecycle](#12-lifecycle)
 - [2. REPL vs Using Files](#2-repl-vs-using-files)
   - [2.1. Running Node.js Code](#21-running-nodejs-code)
 - [3. JavaScript](#3-javascript)
@@ -21,11 +22,15 @@
 - NodeJS to run javascript outside of the browser.
   - NodeJS uses V8 and V8 simply is the name of the javascript engine built by Google that runs javascript in the browser.
 
-![alt](Images/NodeJSOverviewDiagram.png)
+![General diagram](Images/NodeJSDiagram.png)
 
 ## 1.1. Architecture
 
-![alt](Images/NodeJSOverviewArchitecture.png)
+![Architecture](Images/NodeJSArchitecture.png)
+
+## 1.2. Lifecycle
+
+![Lifecycle](Images/NodeJSLifecycle.png)
 
 # 2. REPL vs Using Files
 
