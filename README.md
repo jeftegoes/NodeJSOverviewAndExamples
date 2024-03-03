@@ -20,13 +20,21 @@
   - [2.2. Spread \& Rest Operators](#22-spread--rest-operators)
   - [2.3. Destructuring](#23-destructuring)
 - [3. NPM](#3-npm)
-- [4. Express.JS](#4-expressjs)
-- [5. Sequelize](#5-sequelize)
-- [6. Mongoose](#6-mongoose)
-- [7. Deno](#7-deno)
-  - [7.1. Introduction](#71-introduction)
-  - [7.2. Deno vs Node.js](#72-deno-vs-nodejs)
-- [8. Commands](#8-commands)
+  - [3.1. 3rd Party Packages](#31-3rd-party-packages)
+- [4. Debugging](#4-debugging)
+  - [4.1. Types of Errors](#41-types-of-errors)
+  - [4.2. Debugging](#42-debugging)
+- [5. Express.js](#5-expressjs)
+  - [5.1. What and Why?](#51-what-and-why)
+  - [5.2. What Does Express.js Help You With?](#52-what-does-expressjs-help-you-with)
+  - [5.3. Middleware](#53-middleware)
+- [6. Sequelize](#6-sequelize)
+- [7. Mongoose](#7-mongoose)
+- [8. Deno](#8-deno)
+  - [8.1. Introduction](#81-introduction)
+  - [8.2. Deno vs Node.js](#82-deno-vs-nodejs)
+- [9. Packages](#9-packages)
+- [10. Commands](#10-commands)
 
 # 1. Node.js
 
@@ -202,15 +210,65 @@
 
 # 3. NPM
 
-# 4. Express.JS
+- npmstands for "Node Package Manager" and it allows you to manage your Node project and its dependencies.
+- You can initialize a project with `npm init`.
+- npmscripts can be defined in the `package.json` to give you "shortcuts" to common tasks/ commands.
 
-# 5. Sequelize
+## 3.1. 3rd Party Packages
 
-# 6. Mongoose
+- Node projects typically don’t just use core modules and custom code but also third-party packages.
+- You install them via npm.
+- You can differentiate between production dependencies `(--save)`, development dependencies `(--save-dev)` and global dependencies `(-g)`.
 
-# 7. Deno
+# 4. Debugging
 
-## 7.1. Introduction
+## 4.1. Types of Errors
+
+- **Syntax**, **runtime** and **logical errors** can break your app.
+- Syntax and runtime errors throw (helpful) error messages (with line numbers!).
+- Logical errors can be fixed with testing and the help of the debugger.
+
+## 4.2. Debugging
+
+- Use the VS Code Node debugger to step into your code and go through it step by step.
+- Analyze variable values at runtime.
+- Look into (and manipulate) variables at runtime.
+- Set breakpoints cleverly (i.e. respect the async/ event-driven nature).
+
+# 5. Express.js
+
+## 5.1. What and Why?
+
+- Server Logic is Complex!
+- We want to focus on your Business Logic, not on the nitty-gritty Details!
+- Use a Framework for the Heavy Lifting!
+- **Framework:** Helper functions, tools & rules that help you build your application!
+
+## 5.2. What Does Express.js Help You With?
+
+- Parsing Requests & Sending Responses
+  - Extract Data
+  - Render HTML Pages
+  - Return Data / HTML Responses
+- Routing
+  - Execute different Code for different Requests
+  - Filter / Validate incoming Requests
+- Managing Data
+  - Manage Data across Requests (Sessions)
+  - Work with Files
+  - Work with Databases
+
+## 5.3. Middleware
+
+![ExpressJS](Images/ExpressJSMiddleware.png)
+
+# 6. Sequelize
+
+# 7. Mongoose
+
+# 8. Deno
+
+## 8.1. Introduction
 
 - Node = Deno
 - An alternative to Node.
@@ -220,13 +278,19 @@
 - Deno support **URL imports** and **modern JavaScript features** (e.g. Promises).
 - Deno is "secure by default" and requires explicit execution permissions.
 
-## 7.2. Deno vs Node.js
+## 8.2. Deno vs Node.js
 
 | Deno                                                                                                                                        | Node.js                                                                                                                  |
 | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | TypeScript support, modern JS features, URL imports, script permissions.                                                                    | Only JavaScript, modern JS features are missing, custom module system no script permissions.                             |
 | Pretty new, small ecosystem, not used in production by major companies yet, smaller base of maintainers, not really used in production yet. | Established, highly active ecosystem, used by thousands of (big) companies, huge base of maintainers, production-proven. |
 
-# 8. Commands
+# 9. Packages
 
-- npx gitignore node
+- Nodemon
+  - `npm install nodemon -g`
+  - `npm install nodemon --save-dev`
+
+# 10. Commands
+
+- `npx gitignore node`
