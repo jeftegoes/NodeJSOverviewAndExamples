@@ -25,9 +25,12 @@
   - [4.1. Types of Errors](#41-types-of-errors)
   - [4.2. Debugging](#42-debugging)
 - [5. Express.js](#5-expressjs)
-  - [5.1. What and Why?](#51-what-and-why)
-  - [5.2. What Does Express.js Help You With?](#52-what-does-expressjs-help-you-with)
-  - [5.3. Middleware](#53-middleware)
+  - [5.1. What Does Express.js Help You With?](#51-what-does-expressjs-help-you-with)
+  - [5.2. Middleware](#52-middleware)
+  - [5.3. Routing](#53-routing)
+  - [5.4. Serve Files](#54-serve-files)
+  - [5.5. Request \& Response Data](#55-request--response-data)
+  - [5.6. Alternatives](#56-alternatives)
 - [6. Sequelize](#6-sequelize)
 - [7. Mongoose](#7-mongoose)
 - [8. Deno](#8-deno)
@@ -216,7 +219,7 @@
 
 ## 3.1. 3rd Party Packages
 
-- Node projects typically don’t just use core modules and custom code but also third-party packages.
+- Node projects typically don't just use core modules and custom code but also third-party packages.
 - You install them via npm.
 - You can differentiate between production dependencies `(--save)`, development dependencies `(--save-dev)` and global dependencies `(-g)`.
 
@@ -237,14 +240,15 @@
 
 # 5. Express.js
 
-## 5.1. What and Why?
-
+- Express.js is Node.js framework
+  - A package that adds a bunch of utility functions and tools and a clear set of rules on how the app should be built (middleware!).
+- It's highly extensible and other packages can be plugged into it (middleware!).
 - Server Logic is Complex!
 - We want to focus on your Business Logic, not on the nitty-gritty Details!
 - Use a Framework for the Heavy Lifting!
 - **Framework:** Helper functions, tools & rules that help you build your application!
 
-## 5.2. What Does Express.js Help You With?
+## 5.1. What Does Express.js Help You With?
 
 - Parsing Requests & Sending Responses
   - Extract Data
@@ -258,9 +262,36 @@
   - Work with Files
   - Work with Databases
 
-## 5.3. Middleware
+## 5.2. Middleware
+
+- Express.js relies heavily on middleware functions you can easily add them by calling `use()`.
+- Middleware functions handle a request and should call `next()` to forward the request to the next function in line or send a response.
 
 ![ExpressJS](Images/ExpressJSMiddleware.png)
+
+## 5.3. Routing
+
+- You can filter requests by path and method.
+- If you filter by method, paths are matched exactly, otherwise, the first segment of a URL is matched.
+- You can use the express.Router to split your routes across files elegantely.
+
+![Routing](Images/ExpressJSRouting.png)
+
+## 5.4. Serve Files
+
+- You're not limited to serving dummy text as a response.
+- You can `sendFile()` to your users e.g. HTML files.
+- If a request is directly made for a file (e.g. a .css file is requested), you can enable static serving for such files via `express.static()`.
+
+## 5.5. Request & Response Data
+
+## 5.6. Alternatives
+
+- Vanilla Node.js
+- Adonis.js
+- Koa
+- Sails.js
+- Others
 
 # 6. Sequelize
 
@@ -287,9 +318,11 @@
 
 # 9. Packages
 
-- Nodemon
+- nodemon
   - `npm install nodemon -g`
   - `npm install nodemon --save-dev`
+- body-parser
+  - `npm install --save body-parser`
 
 # 10. Commands
 

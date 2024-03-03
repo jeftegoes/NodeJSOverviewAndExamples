@@ -61,7 +61,7 @@
         <mxCell id="LI2dPMh4kYfaXZQKP3Ya-12" value="Check" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=14;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="200" y="520" width="180" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="LI2dPMh4kYfaXZQKP3Ya-13" value="Execute all ‘close’ event callbacks" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+        <mxCell id="LI2dPMh4kYfaXZQKP3Ya-13" value="Execute all ‘close' event callbacks" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
           <mxGeometry x="140" y="390" width="180" height="50" as="geometry" />
         </mxCell>
         <mxCell id="LI2dPMh4kYfaXZQKP3Ya-14" value="Close Callbacks" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=14;fontStyle=1" vertex="1" parent="1">
