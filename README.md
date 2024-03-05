@@ -14,6 +14,7 @@
   - [1.9. REPL vs Using Files](#19-repl-vs-using-files)
     - [1.9.1. Running Node.js Code](#191-running-nodejs-code)
   - [1.10. Global Features vs Core Modules vs Third-Party Modules](#110-global-features-vs-core-modules-vs-third-party-modules)
+  - [1.11. CommonJS modules and ES modules syntax](#111-commonjs-modules-and-es-modules-syntax)
 - [2. JavaScript](#2-javascript)
   - [2.1. Classes](#21-classes)
     - [2.1.1. Properties \& Methods](#211-properties--methods)
@@ -133,6 +134,13 @@
     // In code file (e.g. app.js)
     const sessions = require('express-session');
   ```
+
+## 1.11. CommonJS modules and ES modules syntax
+
+- By default, Node.js treats JavaScript code as **CommonJS modules**.
+- Because of this, CommonJS modules are characterized by the `require()` statement for module imports and `module.exports` for module exports.
+
+[Example](FunctionsOtherFile/)
 
 # 2. JavaScript
 
