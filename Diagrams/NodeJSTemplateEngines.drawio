@@ -1,0 +1,33 @@
+<mxfile host="Electron" modified="2024-03-10T05:39:37.713Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.16 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="U8qIlq0cVvEOUKmbPSuS" version="22.1.16" type="device">
+  <diagram name="Page-1" id="3uOU8tJEulHdzM6LnEUq">
+    <mxGraphModel dx="1084" dy="1184" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="E173GlUW_bd7v9HJNJfj-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iY3ogfwuf0q9Fqv-o4x8-2" target="iY3ogfwuf0q9Fqv-o4x8-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iY3ogfwuf0q9Fqv-o4x8-2" value="HTMLish Template" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#76608a;fontColor=#ffffff;strokeColor=#432D57;" parent="1" vertex="1">
+          <mxGeometry x="400" y="300" width="230" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iY3ogfwuf0q9Fqv-o4x8-4" value="Node / Express Content" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;" parent="1" vertex="1">
+          <mxGeometry x="340" y="370" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iY3ogfwuf0q9Fqv-o4x8-6" value="Templating Engine" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;" parent="1" vertex="1">
+          <mxGeometry x="530" y="370" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="E173GlUW_bd7v9HJNJfj-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iY3ogfwuf0q9Fqv-o4x8-7" target="E173GlUW_bd7v9HJNJfj-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="515" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iY3ogfwuf0q9Fqv-o4x8-7" value="Replaces Placeholders / Snippets&lt;br&gt;with HTML content" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="400" y="440" width="230" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="E173GlUW_bd7v9HJNJfj-3" value="HTML File" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#76608a;fontColor=#ffffff;strokeColor=#432D57;" vertex="1" parent="1">
+          <mxGeometry x="400" y="510" width="230" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

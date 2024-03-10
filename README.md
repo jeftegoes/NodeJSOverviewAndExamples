@@ -32,13 +32,15 @@
   - [5.4. Serve Files](#54-serve-files)
   - [5.5. Request \& Response Data](#55-request--response-data)
   - [5.6. Alternatives](#56-alternatives)
-- [6. Sequelize](#6-sequelize)
-- [7. Mongoose](#7-mongoose)
-- [8. Deno](#8-deno)
-  - [8.1. Introduction](#81-introduction)
-  - [8.2. Deno vs Node.js](#82-deno-vs-nodejs)
-- [9. Packages](#9-packages)
-- [10. Commands](#10-commands)
+- [6. Template Engines](#6-template-engines)
+  - [6.1. Available Templating Engines](#61-available-templating-engines)
+- [7. Sequelize](#7-sequelize)
+- [8. Mongoose](#8-mongoose)
+- [9. Deno](#9-deno)
+  - [9.1. Introduction](#91-introduction)
+  - [9.2. Deno vs Node.js](#92-deno-vs-nodejs)
+- [10. Packages](#10-packages)
+- [11. Commands](#11-commands)
 
 # 1. Node.js
 
@@ -301,13 +303,29 @@
 - Sails.js
 - Others
 
-# 6. Sequelize
+# 6. Template Engines
 
-# 7. Mongoose
+![Template Engines](Images/NodeJSTemplateEngines.png)
 
-# 8. Deno
+## 6.1. Available Templating Engines
 
-## 8.1. Introduction
+- **EJS**
+  - Use normal HTML and plain JavaScript in your templates
+    - `<p><%= name %></p>`
+- **Pug (Jade)**
+  - Use minimal HTML and custom template language
+    - `p #{name}`
+- **Handlebars**
+  - Use normal HTML and custom template language
+    - `<p>{{ name }}</p>`
+
+# 7. Sequelize
+
+# 8. Mongoose
+
+# 9. Deno
+
+## 9.1. Introduction
 
 - Node = Deno
 - An alternative to Node.
@@ -317,14 +335,14 @@
 - Deno support **URL imports** and **modern JavaScript features** (e.g. Promises).
 - Deno is "secure by default" and requires explicit execution permissions.
 
-## 8.2. Deno vs Node.js
+## 9.2. Deno vs Node.js
 
 | Deno                                                                                                                                        | Node.js                                                                                                                  |
 | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | TypeScript support, modern JS features, URL imports, script permissions.                                                                    | Only JavaScript, modern JS features are missing, custom module system no script permissions.                             |
 | Pretty new, small ecosystem, not used in production by major companies yet, smaller base of maintainers, not really used in production yet. | Established, highly active ecosystem, used by thousands of (big) companies, huge base of maintainers, production-proven. |
 
-# 9. Packages
+# 10. Packages
 
 - nodemon
   - `npm install nodemon -g`
@@ -332,6 +350,6 @@
 - body-parser
   - `npm install --save body-parser`
 
-# 10. Commands
+# 11. Commands
 
 - `npx gitignore node`
