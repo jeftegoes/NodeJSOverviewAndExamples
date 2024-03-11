@@ -142,7 +142,7 @@
 - By default, Node.js treats JavaScript code as **CommonJS modules**.
 - Because of this, CommonJS modules are characterized by the `require()` statement for module imports and `module.exports` for module exports.
 
-[Example](FunctionsOtherFile/)
+[Example](Examples/FunctionsOtherFile/)
 
 # 2. JavaScript
 
@@ -344,6 +344,8 @@
 
 # 10. Packages
 
+- express.js
+  - `npm install --save express`
 - nodemon
   - `npm install nodemon -g`
   - `npm install nodemon --save-dev`
