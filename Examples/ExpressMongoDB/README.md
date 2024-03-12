@@ -1,0 +1,6 @@
+- express.js
+  - `npm install --save express`
+- nodemon
+  - `npm install nodemon --save-dev`
+- mongoose
+  - `npm install --save mongoose`

@@ -346,11 +346,15 @@
 
 - express.js
   - `npm install --save express`
+- express.js validator
+  - `npm install --save express-validator`
 - nodemon
   - `npm install nodemon -g`
   - `npm install nodemon --save-dev`
 - body-parser
   - `npm install --save body-parser`
+- mongoose
+  - `npm install --save mongoose`
 
 # 11. Commands
 
