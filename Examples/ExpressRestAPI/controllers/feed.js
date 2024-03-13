@@ -1,6 +1,8 @@
 const { validationResult } = require("express-validator");
 
-module.exports.getPosts = (req, res, next) => {
+const Book = require("../models/book");
+
+module.exports.getBooks = (req, res, next) => {
   res.status(200).json({
     posts: [
       {
@@ -17,28 +19,34 @@ module.exports.getPosts = (req, res, next) => {
   });
 };
 
-module.exports.createPost = (req, res, next) => {
+module.exports.createBook = (req, res, next) => {
   const erros = validationResult(req);
   if (!erros.isEmpty()) {
-    return res
-      .status(422)
-      .json({
-        message: "Validation failed, entered data is incorrect.",
-        erros: erros.array(),
-      });
+    return res.status(422).json({
+      message: "Validation failed, entered data is incorrect.",
+      erros: erros.array(),
+    });
   }
 
   const title = req.body.title;
   const content = req.body.content;
 
-  res.status(201).json({
-    message: "Post created successfully!",
-    post: {
-      _id: new Date().toISOString(),
-      title: title,
-      content: content,
-      creator: { name: "Uncle Bob" },
-      createdAt: new Date(),
-    },
+  const book = new Book({
+    title: title,
+    content: content,
+    creator: { name: "Uncle Bob" },
   });
+
+  book
+    .save()
+    .then((result) => {
+      console.log(result);
+      res.status(201).json({
+        message: "Book created successfully!",
+        book: result,
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };

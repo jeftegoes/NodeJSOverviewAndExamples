@@ -1,12 +1,13 @@
 const express = require("express");
 const feedRoutes = require("./routes/feed");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 
 const app = express();
 
 const port = 3000;
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -15,9 +16,20 @@ app.use((req, res, next) => {
   next();
 });
 
-// GET /feed/posts
-app.use("/feed", feedRoutes.router);
+// GET /book_store/...
+app.use("/book_store", feedRoutes.router);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}.`);
 });
+
+mongoose
+  .connect(
+    "mongodb://mongoadmin:Master123456@localhost:27017/books?authSource=admin"
+  )
+  .then(() => {
+    console.log("Connected to MongoDB.");
+  })
+  .catch((error) => {
+    console.log(error);
+  });

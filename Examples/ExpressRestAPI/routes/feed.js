@@ -5,15 +5,15 @@ const feedController = require("../controllers/feed");
 
 const router = express.Router();
 
-router.get("/posts", feedController.getPosts);
+router.get("/books", feedController.getBooks);
 
 router.post(
-  "/post",
+  "/book",
   [
     body("title").trim().isLength({ min: 5 }),
     body("content").trim().isLength({ min: 5 }),
   ],
-  feedController.createPost
+  feedController.createBook
 );
 
 module.exports.router = router;
