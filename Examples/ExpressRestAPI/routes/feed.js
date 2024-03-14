@@ -16,4 +16,6 @@ router.post(
   feedController.createBook
 );
 
+router.get("/book/:bookId", feedController.getBook);
+
 module.exports.router = router;
