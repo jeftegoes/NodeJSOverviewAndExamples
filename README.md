@@ -355,6 +355,14 @@
   - `npm install --save body-parser`
 - mongoose
   - `npm install --save mongoose`
+- sequelize
+  - `npm install --save sequelize`
+- database packages
+  - `npm install --save mysql2` # MySql
+  - `npm install --save mariadb`
+  - `npm install --save sqlite3`
+  - `npm install --save tedious` # Microsoft SQL Server
+  - 
 
 # 11. Commands
 
