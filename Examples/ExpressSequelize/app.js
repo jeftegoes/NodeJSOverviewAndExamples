@@ -6,6 +6,10 @@ const port = 3000;
 
 app.use(express.json());
 
+const router = require("./routes/bookRouter");
+
+app.use("/api/books", router);
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
