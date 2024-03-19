@@ -6,9 +6,13 @@ const port = 3000;
 
 app.use(express.json());
 
-const router = require("./routes/bookRouter");
+const bookRouter = require("./routes/bookRouter");
+const customerRouter = require("./routes/customerRouter");
+const loanRouter = require("./routes/loanRouter");
 
-app.use("/api/books", router);
+app.use("/api/books", bookRouter);
+app.use("/api/customers", customerRouter);
+app.use("/api/loans", loanRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");

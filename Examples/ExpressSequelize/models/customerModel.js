@@ -1,27 +1,23 @@
 module.exports = (sequelize, DataTypes) => {
-  const Book = sequelize.define(
-    "book",
+  const Customer = sequelize.define(
+    "customer",
     {
-      bookId: {
+      customerId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         allowNull: false,
         autoIncrement: true,
         unique: true,
       },
-      title: {
+      firstName: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      price: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      author: {
+      lastName: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      image: {
+      phone: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -29,5 +25,5 @@ module.exports = (sequelize, DataTypes) => {
     { freezeTableName: true, timestamps: false }
   );
 
-  return Book;
+  return Customer;
 };

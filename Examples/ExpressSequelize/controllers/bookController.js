@@ -1,6 +1,6 @@
-const Book = require("../models/dbContext");
+const { Book } = require("../models/dbContext");
 
-const addBook = async (req, res) => {
+const add = async (req, res) => {
   let request = {
     title: req.body.title,
     price: req.body.price,
@@ -12,27 +12,27 @@ const addBook = async (req, res) => {
   res.status(201).send(book);
 };
 
-const getAllBooks = async (req, res) => {
+const getAll = async (req, res) => {
   let books = await Book.findAll({});
   res.status(200).send(books);
 };
 
-const getBook = async (req, res) => {
+const get = async (req, res) => {
   let bookId = req.params.bookId;
   let book = await Book.findOne({ where: { bookId: bookId } });
   res.status(200).send(book);
 };
 
-const updateBook = async (req, res) => {
+const update = async (req, res) => {
   let bookId = req.params.bookId;
   let book = await Book.update(req.body, { where: { bookId: bookId } });
   res.status(200).send(book);
 };
 
-const deleteBook = async (req, res) => {
+const remove = async (req, res) => {
   let bookId = req.params.bookId;
-  let book = await Book.destroy({ where: { bookId: bookId } });
-  res.status(200).json({ message: "The book has been deleted!" });
+  await Book.destroy({ where: { bookId: bookId } });
+  res.status(200).json({ message: "The book has been removed!" });
 };
 
-module.exports = { addBook, getAllBooks, getBook, updateBook, deleteBook };
+module.exports = { add, getAll, get, update, remove };
