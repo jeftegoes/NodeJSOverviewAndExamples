@@ -35,7 +35,10 @@
 - [6. Template Engines](#6-template-engines)
   - [6.1. Available Templating Engines](#61-available-templating-engines)
 - [7. Sequelize](#7-sequelize)
+  - [7.1. Core concepts](#71-core-concepts)
+  - [7.2. Summary](#72-summary)
 - [8. Mongoose](#8-mongoose)
+  - [8.1. Core Concepts](#81-core-concepts)
 - [9. Deno](#9-deno)
   - [9.1. Introduction](#91-introduction)
   - [9.2. Deno vs Node.js](#92-deno-vs-nodejs)
@@ -321,7 +324,48 @@
 
 # 7. Sequelize
 
+- What is Sequelize?
+  - An **ORM** = Object-Relational Mapping Library.
+
+![Sequelize](/Images/ORMSequelize.png)
+
+## 7.1. Core concepts
+
+- **Models**
+  - `e.g. Book, Loan`
+- **Instances**
+  - `const book = Book.build()`
+- **Queries**
+  - `Book.findAll()`
+- **Associations**
+  - `Book.hasMany(Loan)`
+
+## 7.2. Summary
+
+- **SQL**
+  - SQL uses strict data schemas and relations.
+  - You can connect your Node.js app via packages like `mysql2`.
+  - Writing SQL queries is not directly related to Node.js and something you have to learn in addition to Node.js.
+- **Sequelize**
+  - Instead of writing SQL queries manually, you can use packages (ORMs) like Sequelize to focus on the Node.js code and work with native JS objects.
+  - Sequelize allows you define models and interact with the database through them.
+  - You can also easily set up relations ("Associations") and interact with your related models through them.
+
 # 8. Mongoose
+
+- What is Mongoose?
+  - A **ODM** = Object-Document Mapping Library.
+
+![Mongoose](/Images/ODMMongoose.png)
+
+## 8.1. Core Concepts
+
+- **Schemas & Models**
+  - `e.g. Book, Loan`
+- **Instances**
+  - `const book = new Book()`
+- **Queries**
+  - `User.find()`
 
 # 9. Deno
 
@@ -362,7 +406,7 @@
   - `npm install --save mariadb`
   - `npm install --save sqlite3`
   - `npm install --save tedious` # Microsoft SQL Server
-  - 
+  -
 
 # 11. Commands
 
