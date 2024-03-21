@@ -1,6 +1,6 @@
 const { validationResult } = require("express-validator");
 
-const Book = require("../models/book");
+const Book = require("../models/bookModel");
 
 module.exports.getBooks = (req, res, next) => {
   Book.find()
@@ -43,12 +43,20 @@ module.exports.createBook = (req, res, next) => {
     throw error;
   }
 
+  if (!req.file) {
+    const error = new Error("No image provided.");
+    error.statusCode = 422;
+    throw error;
+  }
+
+  const imageUrl = req.file.path.replace("\\", "/");
   const title = req.body.title;
   const content = req.body.content;
 
   const book = new Book({
     title: title,
     content: content,
+    imageUrl: imageUrl,
     creator: { name: "Uncle Bob" },
   });
 

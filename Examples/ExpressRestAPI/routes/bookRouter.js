@@ -1,11 +1,11 @@
 const express = require("express");
 const { body } = require("express-validator");
 
-const feedController = require("../controllers/feed");
+const bookController = require("../controllers/bookController");
 
 const router = express.Router();
 
-router.get("/books", feedController.getBooks);
+router.get("/books", bookController.getBooks);
 
 router.post(
   "/book",
@@ -13,9 +13,9 @@ router.post(
     body("title").trim().isLength({ min: 5 }),
     body("content").trim().isLength({ min: 5 }),
   ],
-  feedController.createBook
+  bookController.createBook
 );
 
-router.get("/book/:bookId", feedController.getBook);
+router.get("/book/:bookId", bookController.getBook);
 
 module.exports.router = router;
