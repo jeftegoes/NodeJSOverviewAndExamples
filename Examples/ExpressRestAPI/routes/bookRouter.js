@@ -5,10 +5,10 @@ const bookController = require("../controllers/bookController");
 
 const router = express.Router();
 
-router.get("/books", bookController.getBooks);
+router.get("/", bookController.getBooks);
 
 router.post(
-  "/book",
+  "/",
   [
     body("title").trim().isLength({ min: 5 }),
     body("content").trim().isLength({ min: 5 }),
@@ -16,6 +16,10 @@ router.post(
   bookController.createBook
 );
 
-router.get("/book/:bookId", bookController.getBook);
+router.get("/:bookId", bookController.getBook);
+
+router.put("/:bookId", bookController.updateBook);
+
+router.delete("/:bookId", bookController.deleteBook);
 
 module.exports.router = router;

@@ -46,7 +46,7 @@ app.use((req, res, next) => {
 });
 
 // GET /book_store/...
-app.use("/book_store", bookRoutes.router);
+app.use("/api/books", bookRoutes.router);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}.`);
