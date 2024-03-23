@@ -22,4 +22,4 @@ router.put("/:bookId", bookController.updateBook);
 
 router.delete("/:bookId", bookController.deleteBook);
 
-module.exports.router = router;
+module.exports = router;

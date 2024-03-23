@@ -406,7 +406,12 @@
   - `npm install --save mariadb`
   - `npm install --save sqlite3`
   - `npm install --save tedious` # Microsoft SQL Server
-  -
+- jsonwebtoken
+  - `npm install --save jsonwebtoken`
+- multer - Multer is a module that handles multipart/form-data requests, which are used for uploading files.
+  - `npm install --save multer`
+- bcryptjs
+  - `npm install --save bcryptjs`
 
 # 11. Commands
 

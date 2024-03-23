@@ -17,13 +17,11 @@ module.exports.getBooks = (req, res, next) => {
         .skip((currentPage - 1) * perPage)
         .limit(perPage)
         .then((books) => {
-          res
-            .status(200)
-            .json({
-              message: "Fectched posts successfully",
-              books: books,
-              totalItems: totalItems,
-            });
+          res.status(200).json({
+            message: "Fectched posts successfully",
+            books: books,
+            totalItems: totalItems,
+          });
         });
     })
     .catch((err) => {
@@ -55,8 +53,9 @@ module.exports.getBook = (req, res, next) => {
 };
 
 module.exports.createBook = (req, res, next) => {
-  const erros = validationResult(req);
-  if (!erros.isEmpty()) {
+  const errors = validationResult(req);
+  
+  if (!errors.isEmpty()) {
     const error = new Error("Validation failed, entered data is incorrect.");
     error.statusCode = 422;
     throw error;

@@ -1,6 +1,7 @@
 const path = require("path");
 const express = require("express");
-const bookRoutes = require("./routes/bookRouter");
+const bookRouter = require("./routes/bookRouter");
+const authRouter = require("./routes/authRouter");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const multer = require("multer");
@@ -13,8 +14,7 @@ const storage = multer.diskStorage({
     cb(null, "images");
   },
   filename: function (req, file, cb) {
-
-    let ext = path.extname(file.originalname)
+    let ext = path.extname(file.originalname);
     cb(null, uuidv4() + ext);
   },
 });
@@ -46,7 +46,8 @@ app.use((req, res, next) => {
 });
 
 // GET /book_store/...
-app.use("/api/books", bookRoutes.router);
+app.use("/api/books", bookRouter);
+app.use("/api/auth", authRouter);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}.`);
@@ -56,7 +57,8 @@ app.use((error, req, res, next) => {
   console.log(error);
   const status = error.statusCode || 500;
   const message = error.message;
-  res.status(status).json({ message: message });
+  const data = error.data;
+  res.status(status).json({ message: message, data: data });
 });
 
 mongoose
