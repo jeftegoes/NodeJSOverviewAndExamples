@@ -4,35 +4,30 @@ const path = require("path");
 const { validationResult } = require("express-validator");
 
 const Book = require("../models/bookModel");
+const User = require("../models/userModel");
 
-module.exports.getBooks = (req, res, next) => {
+module.exports.getBooks = async (req, res, next) => {
   const currentPage = req.query.page || 1;
   const perPage = 2;
-  let totalItems;
-  Book.find()
-    .countDocuments()
-    .then((count) => {
-      totalItems = count;
-      return Book.find()
-        .skip((currentPage - 1) * perPage)
-        .limit(perPage)
-        .then((books) => {
-          res.status(200).json({
-            message: "Fectched posts successfully",
-            books: books,
-            totalItems: totalItems,
-          });
-        });
-    })
-    .catch((err) => {
-      if (!err.statusCode) {
-        err.statusCode = 500;
-      }
-      next(err);
+  try {
+    const totalItems = await Book.find().countDocuments();
+    const books = await Book.find()
+      .skip((currentPage - 1) * perPage)
+      .limit(perPage);
+    res.status(200).json({
+      message: "Fectched books successfully",
+      books: books,
+      totalItems: totalItems,
     });
+  } catch (err) {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+    }
+    next(err);
+  }
 };
 
-module.exports.getBook = (req, res, next) => {
+module.exports.getBook = async (req, res, next) => {
   const bookId = req.params.bookId;
   Book.findById(bookId)
     .then((book) => {
@@ -52,9 +47,9 @@ module.exports.getBook = (req, res, next) => {
     });
 };
 
-module.exports.createBook = (req, res, next) => {
+module.exports.createBook = async (req, res, next) => {
   const errors = validationResult(req);
-  
+
   if (!errors.isEmpty()) {
     const error = new Error("Validation failed, entered data is incorrect.");
     error.statusCode = 422;
@@ -67,20 +62,30 @@ module.exports.createBook = (req, res, next) => {
     throw error;
   }
 
+  let creator;
+
   const book = new Book({
     title: req.body.title,
     content: req.body.content,
     imageUrl: req.file.path.replace("\\", "/"),
-    creator: { name: "Uncle Bob" },
+    creator: req.userId,
   });
 
   book
     .save()
     .then((result) => {
-      console.log(result);
+      return User.findById(req.userId);
+    })
+    .then((user) => {
+      creator = user;
+      user.books.push(book);
+      return user.save();
+    })
+    .then((result) => {
       res.status(201).json({
         message: "Book created successfully!",
         book: result,
+        creator: { _id: creator._id, name: creator.name },
       });
     })
     .catch((err) => {
@@ -92,7 +97,7 @@ module.exports.createBook = (req, res, next) => {
     });
 };
 
-exports.updateBook = (req, res, next) => {
+exports.updateBook = async (req, res, next) => {
   const bookId = req.params.bookId;
 
   const errors = validationResult(req);
@@ -142,7 +147,7 @@ exports.updateBook = (req, res, next) => {
     });
 };
 
-exports.deleteBook = (req, res, next) => {
+exports.deleteBook = async (req, res, next) => {
   const bookId = req.params.bookId;
 
   Book.findById(bookId)

@@ -19,10 +19,12 @@ const userSchema = new Schema(
       type: String,
       default: "I am new!",
     },
-    books: {
-      type: Schema.Types.ObjectId,
-      ref: "Book",
-    },
+    books: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Book",
+      },
+    ],
   },
   { timestamps: true }
 );
