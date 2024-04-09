@@ -1,4 +1,4 @@
-# Grafana overview <!-- omit in toc -->
+# NodeJS overview and examples <!-- omit in toc -->
 
 ## Contents <!-- omit in toc -->
 
@@ -15,35 +15,30 @@
     - [1.9.1. Running Node.js Code](#191-running-nodejs-code)
   - [1.10. Global Features vs Core Modules vs Third-Party Modules](#110-global-features-vs-core-modules-vs-third-party-modules)
   - [1.11. CommonJS modules and ES modules syntax](#111-commonjs-modules-and-es-modules-syntax)
-- [2. JavaScript](#2-javascript)
-  - [2.1. Classes](#21-classes)
-    - [2.1.1. Properties \& Methods](#211-properties--methods)
-  - [2.2. Spread \& Rest Operators](#22-spread--rest-operators)
-  - [2.3. Destructuring](#23-destructuring)
-- [3. NPM](#3-npm)
-  - [3.1. 3rd Party Packages](#31-3rd-party-packages)
-- [4. Debugging](#4-debugging)
-  - [4.1. Types of Errors](#41-types-of-errors)
-  - [4.2. Debugging](#42-debugging)
-- [5. Express.js](#5-expressjs)
-  - [5.1. What Does Express.js Help You With?](#51-what-does-expressjs-help-you-with)
-  - [5.2. Middleware](#52-middleware)
-  - [5.3. Routing](#53-routing)
-  - [5.4. Serve Files](#54-serve-files)
-  - [5.5. Request \& Response Data](#55-request--response-data)
-  - [5.6. Alternatives](#56-alternatives)
-- [6. Template Engines](#6-template-engines)
-  - [6.1. Available Templating Engines](#61-available-templating-engines)
-- [7. Sequelize](#7-sequelize)
-  - [7.1. Core concepts](#71-core-concepts)
-  - [7.2. Summary](#72-summary)
-- [8. Mongoose](#8-mongoose)
-  - [8.1. Core Concepts](#81-core-concepts)
-- [9. Deno](#9-deno)
-  - [9.1. Introduction](#91-introduction)
-  - [9.2. Deno vs Node.js](#92-deno-vs-nodejs)
-- [10. Packages](#10-packages)
-- [11. Commands](#11-commands)
+- [2. NPM](#2-npm)
+  - [2.1. 3rd Party Packages](#21-3rd-party-packages)
+- [3. Debugging](#3-debugging)
+  - [3.1. Types of Errors](#31-types-of-errors)
+  - [3.2. Debugging](#32-debugging)
+- [4. Express.js](#4-expressjs)
+  - [4.1. What Does Express.js Help You With?](#41-what-does-expressjs-help-you-with)
+  - [4.2. Middleware](#42-middleware)
+  - [4.3. Routing](#43-routing)
+  - [4.4. Serve Files](#44-serve-files)
+  - [4.5. Request \& Response Data](#45-request--response-data)
+  - [4.6. Alternatives](#46-alternatives)
+- [5. Template Engines](#5-template-engines)
+  - [5.1. Available Templating Engines](#51-available-templating-engines)
+- [6. Sequelize](#6-sequelize)
+  - [6.1. Core concepts](#61-core-concepts)
+  - [6.2. Summary](#62-summary)
+- [7. Mongoose](#7-mongoose)
+  - [7.1. Core Concepts](#71-core-concepts)
+- [8. Deno](#8-deno)
+  - [8.1. Introduction](#81-introduction)
+  - [8.2. Deno vs Node.js](#82-deno-vs-nodejs)
+- [9. Packages](#9-packages)
+- [10. Commands](#10-commands)
 
 # 1. Node.js
 
@@ -147,111 +142,34 @@
 
 [Example](Examples/FunctionsOtherFile/)
 
-# 2. JavaScript
-
-## 2.1. Classes
-
-- Basic structure
-  ```
-    class Person {
-      name = "Jefté"
-      call = () => {...}
-    }
-  ```
-- Usage
-  ```
-    const person = new Person()
-    person.call()
-    console.log(person.name)
-  ```
-- Inheritance
-  ```
-    class Person extends Master
-  ```
-
-### 2.1.1. Properties & Methods
-
-- Properties are like "variables attached to classes/ objects".
-  - **ES6**
-    ```
-      constructor () {
-        this.myProperty = "value"
-      }
-    ```
-  - **ES7**
-    ```
-      myProperty = "value"
-    ```
-- Methods are like "functions attached to classes/ objects".
-  - **ES6**
-    ```
-      myMethod () { ... }
-    ```
-  - **ES7**
-    ```
-      myMethod = () => { ... }
-    ```
-
-## 2.2. Spread & Rest Operators
-
-- **Spread**
-  - Used to split up array elements OR object properties
-  ```
-    const newArray = [...oldArray, 1, 2]
-    const newObject = { ...oldObject, newProp: 5 }
-  ```
-- **Rest**
-  - Used to merge a list of function arguments into an array
-  ```
-    function sortArgs(...args) {
-      return args.sort()
-    }
-  ```
-
-## 2.3. Destructuring
-
-- Easily extract array elements or object properties and store them in variables.
-- **Array Destructuring**
-  ```
-    [a, b] = ["Hello", "Jefté"]
-    console.log(a) // Hello
-    console.log(b) // Jefté
-  ```
-- **Object Destructuring**
-  ```
-    {name} = {name: "Jefté", age: 28}
-    console.log(name) // Jefté
-    console.log(age) // undefined
-  ```
-
-# 3. NPM
+# 2. NPM
 
 - npmstands for "Node Package Manager" and it allows you to manage your Node project and its dependencies.
 - You can initialize a project with `npm init`.
 - npmscripts can be defined in the `package.json` to give you "shortcuts" to common tasks/ commands.
 
-## 3.1. 3rd Party Packages
+## 2.1. 3rd Party Packages
 
 - Node projects typically don't just use core modules and custom code but also third-party packages.
 - You install them via npm.
 - You can differentiate between production dependencies `(--save)`, development dependencies `(--save-dev)` and global dependencies `(-g)`.
 
-# 4. Debugging
+# 3. Debugging
 
-## 4.1. Types of Errors
+## 3.1. Types of Errors
 
 - **Syntax**, **runtime** and **logical errors** can break your app.
 - Syntax and runtime errors throw (helpful) error messages (with line numbers!).
 - Logical errors can be fixed with testing and the help of the debugger.
 
-## 4.2. Debugging
+## 3.2. Debugging
 
 - Use the VS Code Node debugger to step into your code and go through it step by step.
 - Analyze variable values at runtime.
 - Look into (and manipulate) variables at runtime.
 - Set breakpoints cleverly (i.e. respect the async/ event-driven nature).
 
-# 5. Express.js
+# 4. Express.js
 
 - Express.js is Node.js framework
   - A package that adds a bunch of utility functions and tools and a clear set of rules on how the app should be built (middleware!).
@@ -261,7 +179,7 @@
 - Use a Framework for the Heavy Lifting!
 - **Framework:** Helper functions, tools & rules that help you build your application!
 
-## 5.1. What Does Express.js Help You With?
+## 4.1. What Does Express.js Help You With?
 
 - Parsing Requests & Sending Responses
   - Extract Data
@@ -275,14 +193,14 @@
   - Work with Files
   - Work with Databases
 
-## 5.2. Middleware
+## 4.2. Middleware
 
 - Express.js relies heavily on middleware functions you can easily add them by calling `use()`.
 - Middleware functions handle a request and should call `next()` to forward the request to the next function in line or send a response.
 
 ![ExpressJS](Images/ExpressJSMiddleware.png)
 
-## 5.3. Routing
+## 4.3. Routing
 
 - You can filter requests by path and method.
 - If you filter by method, paths are matched exactly, otherwise, the first segment of a URL is matched.
@@ -290,15 +208,15 @@
 
 ![Routing](Images/ExpressJSRouting.png)
 
-## 5.4. Serve Files
+## 4.4. Serve Files
 
 - You're not limited to serving dummy text as a response.
 - You can `sendFile()` to your users e.g. HTML files.
 - If a request is directly made for a file (e.g. a .css file is requested), you can enable static serving for such files via `express.static()`.
 
-## 5.5. Request & Response Data
+## 4.5. Request & Response Data
 
-## 5.6. Alternatives
+## 4.6. Alternatives
 
 - Vanilla Node.js
 - Adonis.js
@@ -306,11 +224,11 @@
 - Sails.js
 - Others
 
-# 6. Template Engines
+# 5. Template Engines
 
 ![Template Engines](Images/NodeJSTemplateEngines.png)
 
-## 6.1. Available Templating Engines
+## 5.1. Available Templating Engines
 
 - **EJS**
   - Use normal HTML and plain JavaScript in your templates
@@ -322,14 +240,14 @@
   - Use normal HTML and custom template language
     - `<p>{{ name }}</p>`
 
-# 7. Sequelize
+# 6. Sequelize
 
 - What is Sequelize?
   - An **ORM** = Object-Relational Mapping Library.
 
 ![Sequelize](/Images/ORMSequelize.png)
 
-## 7.1. Core concepts
+## 6.1. Core concepts
 
 - **Models**
   - `e.g. Book, Loan`
@@ -340,7 +258,7 @@
 - **Associations**
   - `Book.hasMany(Loan)`
 
-## 7.2. Summary
+## 6.2. Summary
 
 - **SQL**
   - SQL uses strict data schemas and relations.
@@ -351,14 +269,14 @@
   - Sequelize allows you define models and interact with the database through them.
   - You can also easily set up relations ("Associations") and interact with your related models through them.
 
-# 8. Mongoose
+# 7. Mongoose
 
 - What is Mongoose?
   - A **ODM** = Object-Document Mapping Library.
 
 ![Mongoose](/Images/ODMMongoose.png)
 
-## 8.1. Core Concepts
+## 7.1. Core Concepts
 
 - **Schemas & Models**
   - `e.g. Book, Loan`
@@ -367,9 +285,9 @@
 - **Queries**
   - `User.find()`
 
-# 9. Deno
+# 8. Deno
 
-## 9.1. Introduction
+## 8.1. Introduction
 
 - Node = Deno
 - An alternative to Node.
@@ -379,14 +297,14 @@
 - Deno support **URL imports** and **modern JavaScript features** (e.g. Promises).
 - Deno is "secure by default" and requires explicit execution permissions.
 
-## 9.2. Deno vs Node.js
+## 8.2. Deno vs Node.js
 
 | Deno                                                                                                                                        | Node.js                                                                                                                  |
 | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | TypeScript support, modern JS features, URL imports, script permissions.                                                                    | Only JavaScript, modern JS features are missing, custom module system no script permissions.                             |
 | Pretty new, small ecosystem, not used in production by major companies yet, smaller base of maintainers, not really used in production yet. | Established, highly active ecosystem, used by thousands of (big) companies, huge base of maintainers, production-proven. |
 
-# 10. Packages
+# 9. Packages
 
 - express.js
   - `npm install --save express`
@@ -413,6 +331,6 @@
 - bcryptjs
   - `npm install --save bcryptjs`
 
-# 11. Commands
+# 10. Commands
 
 - `npx gitignore node`
