@@ -1,7 +1,11 @@
-class ProductRepository {
+const IProductRepository = require("../interfaces/product-repository-interface");
+
+class ProductRepository extends IProductRepository {
   #products = [];
 
-  constructor() {}
+  constructor() {
+    super();
+  }
 
   append(product) {
     this.#products.push(product);

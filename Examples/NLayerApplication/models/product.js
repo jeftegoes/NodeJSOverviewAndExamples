@@ -12,6 +12,14 @@ class Product {
   toString() {
     return `${this.code} - ${this.description} - ${this.price}`;
   }
+
+  toModel(productData) {
+    this.code = productData.productId;
+    this.description = productData.description;
+    this.price = productData.price;
+
+    return this;
+  }
 }
 
 module.exports = Product;

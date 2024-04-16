@@ -11,8 +11,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "runtimeExecutable": "nodemon",
-            "program": "${workspaceFolder}/app.js",
+            "program": "${workspaceFolder}\\app.js",
+            "console": "integratedTerminal"
         }
     ]
 }
