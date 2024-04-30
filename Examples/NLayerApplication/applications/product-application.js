@@ -5,15 +5,19 @@ class ProductApplication {
     this.productRepository = productRepository;
   }
 
-  getTotalPriceByQuantity = async (code, quantity) => {
+  async getTotalPriceByQuantity(code, quantity) {
     let productData = await this.productRepository.get(code);
     let product = new Product().toModel(productData);
     return product.getTotalPriceByQuantity(quantity);
-  };
+  }
 
-  get = async (code) => {
+  async get(code) {
     return await this.productRepository.get(code);
-  };
+  }
+
+  async getAll() {
+    return await this.productRepository.getAll();
+  }
 }
 
 module.exports = ProductApplication;

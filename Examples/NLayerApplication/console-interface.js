@@ -22,15 +22,19 @@ const productApplication = new ProductApplication(productRespository);
 const userInterface = new UserInterface(productApplication);
 
 console.log("-------- Select product --------");
-console.log(productRespository.getAll());
+productRespository.getAll().then((result) => {
+  console.log(result);
 
-const productAndPrice = prompt(
-  "Enter the code and quantity of the product to be purchased: "
-).split(" ");
+  const productAndPrice = prompt(
+    "Enter the code and quantity of the product to be purchased: "
+  ).split(" ");
 
-console.log(
-  userInterface.getTotalPrice(
-    parseFloat(productAndPrice[0]),
-    parseFloat(productAndPrice[1])
-  )
-);
+  userInterface
+    .getTotalPrice(
+      parseFloat(productAndPrice[0]),
+      parseFloat(productAndPrice[1])
+    )
+    .then((result) => {
+      console.log(result);
+    });
+});

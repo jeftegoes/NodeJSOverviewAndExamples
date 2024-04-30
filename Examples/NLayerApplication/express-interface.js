@@ -29,7 +29,7 @@ const port = 3000;
 
 app.use(express.json());
 
-app.get("/code/:code/quantity/:quantity", async (req, res, next) => {
+app.get("/code/:code/quantity/:quantity", async (req, res) => {
   let code = req.params.code;
   let quantity = req.params.quantity;
 
@@ -39,6 +39,11 @@ app.get("/code/:code/quantity/:quantity", async (req, res, next) => {
   );
 
   res.json({ result: result });
+});
+
+app.get("/products", async (req, res) => {
+  let products = await userInterface.getProducts();
+  res.status(200).send(products);
 });
 
 app.listen(port, () => {

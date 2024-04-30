@@ -7,15 +7,15 @@ class ProductRepository extends IProductRepository {
     super();
   }
 
-  append(product) {
+  async append(product) {
     this.#products.push(product);
   }
 
-  get(code) {
+  async get(code) {
     return this.#products.find((product) => product.code === code);
   }
 
-  getAll() {
+  async getAll() {
     let products = "Code     Description      Price\n";
 
     this.#products.forEach((product) => {

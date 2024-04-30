@@ -4,4 +4,5 @@ module.exports = {
   PASSWORD: "Master@123",
   DB: "product_store",
   dialect: "mysql",
+  PORT: 3306,
 };

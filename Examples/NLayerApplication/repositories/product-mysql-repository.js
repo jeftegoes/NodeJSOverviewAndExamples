@@ -8,19 +8,19 @@ class ProductMySqlRepository extends IProductRepository {
     super();
   }
 
-  append(product) {
+  async append(product) {
     this.#products.push(product);
   }
 
-  get = async (code) => {
+  async get(code) {
     let product = await Product.findOne({
       raw: true,
       where: { productId: code },
     });
     return product;
-  };
+  }
 
-  getAll() {
+  async getAll() {
     let products = Product.findAll({
       raw: true,
     });

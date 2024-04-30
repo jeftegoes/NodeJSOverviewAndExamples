@@ -3,16 +3,20 @@ class UserInterface {
     this.productApplication = productApplication;
   }
 
-  getTotalPrice = async (code, quantity) => {
+  async getTotalPrice(code, quantity) {
     if (this.productApplication.get(code)) {
       return this.productApplication.getTotalPriceByQuantity(code, quantity);
     }
 
     return "Product not found!";
-  };
+  }
 
-  getTotalPriceByQuantity(code, quantity) {
+  async getTotalPriceByQuantity(code, quantity) {
     return this.productApplication.getTotalPriceByQuantity(code, quantity);
+  }
+
+  async getProducts() {
+    return await this.productApplication.getAll();
   }
 }
 
