@@ -17,6 +17,7 @@ sequelize
   });
 
 const Product = require("./product")(sequelize, DataTypes);
+const User = require("./user")(sequelize, DataTypes);
 
 // sequelize.sync({ force: true }) # Drops it first if it already exists.
 // sequelize.sync({ alter: true }) # Checks the current state of database (columns it has, their data types, etc).
@@ -29,4 +30,4 @@ sequelize
     console.log(err);
   });
 
-module.exports = { Product };
+module.exports = { Product, User };

@@ -1,6 +1,7 @@
 const IProductRepository = require("../interfaces/product-repository-interface");
+const { Product } = require("../data/dbContext");
 
-class ProductRepository extends IProductRepository {
+class ProductMySqlRepository extends IProductRepository {
   #products = [];
 
   constructor() {
@@ -12,24 +13,20 @@ class ProductRepository extends IProductRepository {
   }
 
   async get(code) {
-    return this.#products.find((product) => product.code === code);
+    let product = await Product.findOne({
+      raw: true,
+      where: { productId: code },
+    });
+    return product;
   }
 
   async getAll() {
-    let products = "Code     Description      Price\n";
-
-    this.#products.forEach((product) => {
-      products +=
-        product.code +
-        "   -    " +
-        product.description +
-        "   -    " +
-        product.price +
-        "\n";
+    let products = Product.findAll({
+      raw: true,
     });
 
     return products;
   }
 }
 
-module.exports = ProductRepository;
+module.exports = ProductMySqlRepository;

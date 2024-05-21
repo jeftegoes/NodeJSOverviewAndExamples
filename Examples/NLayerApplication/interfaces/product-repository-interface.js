@@ -5,15 +5,15 @@ class IProductRepository {
     }
   }
 
-  append() {
+  async append() {
     throw new Error("Method 'append()' must be implemented.");
   }
 
-  get() {
+  async get() {
     throw new Error("Method 'get()' must be implemented.");
   }
 
-  getAll() {
+  async getAll() {
     throw new Error("Method 'getAll()' must be implemented.");
   }
 }

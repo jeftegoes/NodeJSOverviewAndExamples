@@ -1,4 +1,4 @@
-class UserInterface {
+class ProductFacade {
   constructor(productApplication) {
     this.productApplication = productApplication;
   }
@@ -15,9 +15,13 @@ class UserInterface {
     return this.productApplication.getTotalPriceByQuantity(code, quantity);
   }
 
+  async getProduct(code) {
+    return await this.productApplication.get(code);
+  }
+
   async getProducts() {
     return await this.productApplication.getAll();
   }
 }
 
-module.exports = UserInterface;
+module.exports = ProductFacade;
