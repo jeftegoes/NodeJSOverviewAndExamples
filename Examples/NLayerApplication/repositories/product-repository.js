@@ -1,7 +1,7 @@
 const IProductRepository = require("../interfaces/product-repository-interface");
 const { Product } = require("../data/dbContext");
 
-class ProductMySqlRepository extends IProductRepository {
+class ProductRepository extends IProductRepository {
   #products = [];
 
   constructor() {
@@ -29,4 +29,4 @@ class ProductMySqlRepository extends IProductRepository {
   }
 }
 
-module.exports = ProductMySqlRepository;
+module.exports = ProductRepository;
