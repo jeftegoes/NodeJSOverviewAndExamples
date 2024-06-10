@@ -3,24 +3,32 @@ class ProductFacade {
     this.productApplication = productApplication;
   }
 
-  async getTotalPrice(code, quantity) {
-    if (this.productApplication.get(code)) {
-      return this.productApplication.getTotalPriceByQuantity(code, quantity);
-    }
+  async getAll() {
+    return await this.productApplication.getAll();
+  }
 
-    return "Product not found!";
+  async getById(code) {
+    return await this.productApplication.getById(code);
+  }
+
+  async create(product) {
+    return await this.productApplication.create(product);
+  }
+
+  async update(id, product) {
+    await this.productApplication.update(id, product);
   }
 
   async getTotalPriceByQuantity(code, quantity) {
     return this.productApplication.getTotalPriceByQuantity(code, quantity);
   }
 
-  async getProduct(code) {
-    return await this.productApplication.get(code);
-  }
+  async getTotalPrice(code, quantity) {
+    if (this.productApplication.get(code)) {
+      return this.productApplication.getTotalPriceByQuantity(code, quantity);
+    }
 
-  async getProducts() {
-    return await this.productApplication.getAll();
+    return "Product not found!";
   }
 }
 

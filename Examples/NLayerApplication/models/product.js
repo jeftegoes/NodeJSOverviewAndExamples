@@ -3,6 +3,7 @@ class Product {
     this.code = code;
     this.description = description;
     this.price = price;
+    this.stock = stock;
   }
 
   getTotalPriceByQuantity(quantity) {
@@ -13,12 +14,11 @@ class Product {
     return `${this.code} - ${this.description} - ${this.price}`;
   }
 
-  toModel(productData) {
-    this.code = productData.productId;
-    this.description = productData.description;
-    this.price = productData.price;
+  checkIfExistStock(product) {
+    if (product.stock > 0)
+      return true;
 
-    return this;
+    return false;
   }
 }
 
